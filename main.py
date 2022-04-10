@@ -23,6 +23,7 @@ def get_info_by_ip(ip='127.0.0.1'):
             print(f'{k} : {v}')
         isp = str(response.get('isp'))
         if isp.strip() == 'None':
+            os.system('cls')
             print(f'{Fore.LIGHTRED_EX}[!] {Fore.LIGHTMAGENTA_EX}Укажите настоящий IP адрес!{Fore.RESET}')
         else:
             open_html(
@@ -32,6 +33,7 @@ def get_info_by_ip(ip='127.0.0.1'):
                 city=response.get('city')
                 )
     except requests.exceptions.ConnectionError:
+        os.system('cls')
         print(f'{Fore.LIGHTRED_EX}[!] {Fore.LIGHTMAGENTA_EX}Проверьте ваше интернет соединение!{Fore.RESET}')
 
 def open_html(lat, lon, query, city):
